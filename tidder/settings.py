@@ -79,10 +79,7 @@ WSGI_APPLICATION = 'tidder.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(os.environ.get("postgresql://neondb_owner:Kx0fDAO5Wpkl@ep-wandering-lake-a2q0qpg2.eu-central-1.aws.neon.tech/chef_claw_king_108654L"))
 }
 
 
