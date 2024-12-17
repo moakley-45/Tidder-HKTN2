@@ -9,7 +9,7 @@ from django.views.generic import TemplateView
 
 class PostMainView(generic.ListView):
     model = Post
-    template_name = 'content/post_main.html'
+    template_name = 'content/posts_main.html'
     context_object_name = 'posts'
     paginate_by = 10
 
