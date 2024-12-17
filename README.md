@@ -1,6 +1,6 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Team list: Guy S-P,
+Team list: Guy S-P, Paul Jebb, John Gardner, Mars Oakley,
 
 Dear Tidders,
 
