@@ -14,14 +14,17 @@ from pathlib import Path
 import os
 import dj_database_url
 
+
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
 
 if os.path.isfile("env.py"):
     import env
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -32,7 +35,7 @@ SECRET_KEY = 'django-insecure-8s5sbw67@_is4ld3rv$nz*d&wkk#5w8jj+$xn=a4a6y)kt+#ue
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '8000-moakley45-tidderhktn2-jdlss8c6niy.ws.codeinstitute-ide.net', '*.herokuapp.com']
+ALLOWED_HOSTS = ['8000-moakley45-tidderhktn2-jdlss8c6niy.ws.codeinstitute-ide.net', '*.herokuapp.com']
 
 
 # Application definition
@@ -76,7 +79,7 @@ ROOT_URLCONF = 'tidder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
