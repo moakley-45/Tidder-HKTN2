@@ -1,0 +1,17 @@
+/* General Styles */
+
+body.d-flex.flex-column.h-100 {
+    background: black;
+    color: #f0ffff;
+}
+
+/* Navigation Styles */
+
+a.nav-link {
+    color: #f0ffff;
+}
+
+li.nav-item {
+    border-right: 2px solid #f0ffff;
+    margin-right: 5px;
+}
