@@ -2,8 +2,27 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.db.models import Count
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
+from django.views.generic import TemplateView
+
+class PostMainView(generic.ListView):
+    model = Post
+    template_name = 'content/post_main.html'
+    context_object_name = 'posts'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Post.objects.filter(status=1).annotate(
+            comment_count=Count('comments')
+        ).order_by('-created_on')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'All Posts'
+        return context
+
 
 class PostCreateView(LoginRequiredMixin, generic.CreateView):
     model = Post
