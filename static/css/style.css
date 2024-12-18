@@ -1,6 +1,6 @@
 /* General Styles */
 
-body.d-flex.flex-column.h-100 {
+body.d-flex.flex-column.min-vh-100 {
     background: black;
     color: #f0ffff;
 }
