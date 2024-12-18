@@ -21,6 +21,7 @@ class PostForm(forms.ModelForm):
             Field('status'),
         )
 
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
