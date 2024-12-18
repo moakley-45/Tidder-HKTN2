@@ -59,9 +59,9 @@ As shown below, we used GitHub Projects to track tasks and their progress. Using
 * **Sprint 1: Core Functionality**
   * User registration and authentication
   * Blog post creation, editing, and deletion
-  * User comment submission and moderation  * 
+  * User comment submission and moderation
 * **Sprint 2: User Experience and Features**
-  * User interface and user experience improvements   * 
+  * User interface and user experience improvements
 * **Sprint 3: Deployment and Testing**
   * Final deployment to production environment
   * Testing for quality and performance
