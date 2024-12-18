@@ -53,6 +53,8 @@ def add_comment(request, slug):
             comment = form.save(commit=False)
             comment.post = post
             comment.author = request.user
+            # adding approved = True for testing
+            comment.approved = True
             comment.save()
             return redirect('post_detail', slug=slug)
     else:

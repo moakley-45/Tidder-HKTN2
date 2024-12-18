@@ -4,7 +4,7 @@
     <h1>{{ title }}</h1>
     {% for post in posts %}
         <article>
-            <h2><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h2>
+            <!-- H2 slug stuff to go here :) -->
             <p>{{ post.excerpt }}</p>
             <p>Author: {{ post.creator }} | Date: {{ post.created_on }} | Comments: {{ post.comment_count }}</p>
         </article>
