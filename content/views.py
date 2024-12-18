@@ -60,3 +60,23 @@ def add_comment(request, slug):
     else:
         form = CommentForm()
     return render(request, 'content/add_comment.html', {'form': form})
+
+
+def edit_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            return redirect('post_detail', slug=comment.post.slug)
+    else:
+        form = CommentForm(instance=comment)
+    return render(request, 'content/edit_comment.html', {'form': form, 'comment': comment})
+
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.method == 'POST':
+        comment.delete()
+        return redirect('post_detail', slug=comment.post.slug)
+    return render(request, 'content/delete_comment.html', {'comment': comment})
+

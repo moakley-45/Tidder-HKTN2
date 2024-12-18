@@ -33,9 +33,13 @@
 <div id="comments-space">
     <h2 id="comments-title">Comments</h2>
     {% for comment in comments %}
-    <p class="comments-content-body">{{ comment.author }}: {{ comment.comment_content }}</p>
+        <p class="comments-content-body">{{ comment.author }}: {{ comment.comment_content }}</p>
+        {% if user.is_authenticated and user == comment.author %}
+            <a href="{% url 'edit_comment' comment.id %}" class="btn btn-info">Edit</a>
+            <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger">Delete</a>
+        {% endif %}
     {% empty %}
-    <p>No comments yet.</p>
+        <p>No comments yet.</p>
     {% endfor %}
 
     <h3>Add a Comment</h3>
@@ -43,4 +47,5 @@
         {% crispy comment_form %}
     </form>
 </div>
+
 {% endblock %}
