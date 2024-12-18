@@ -4,23 +4,40 @@
 
 
 {% block content %}
- <h1>{{ post.title }}</h1>
-<hr>
-<span>Created by {{ post.creator}} at {{post.created_on}}</span>
-<hr>
-<p>{{ post.content }}</p>
-<hr>
-<span> Updated at: {{post.updated_on}}</span>
+<div id="post-space" class="mb-3">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <span class="post-details-creation"><em>Created by {{ post.creator}} at {{post.created_on}}</em></span>
+    <hr>
+    <p class="post-content-body">{{ post.content }}</p>
+    <hr>
+    <span class="post-details-updates"><em> Updated at: {{post.updated_on}}</em></span>
+</div>
+
+<div class="container score-elements">
+    <div class="row">
+        <div class="col col-lg-2 text-center up-vote">
+            <i class="fa-solid fa-circle-arrow-up"></i>
+        </div>
+        <div class="col-md-auto text-center score-readout">
+            Score - 0
+        </div>
+        <div class="col col-lg-2 text-center down-vote">
+            <i class="fa-solid fa-circle-arrow-down"></i>
+        </div>
+    </div>
+
+</div>
 
 
-<h2>Comments</h2>
-{% for comment in comments %}
-    <p>{{ comment.author }}: {{ comment.comment_content }}</p>
-{% empty %}
+<div id="comments-space">
+    <h2 id="comments-title">Comments</h2>
+    {% for comment in comments %}
+    <p class="comments-content-body">{{ comment.author }}: {{ comment.comment_content }}</p>
+    {% empty %}
     <p>No comments yet.</p>
-{% endfor %}
+    {% endfor %}
 
-<h3>Add a Comment</h3>
-{% crispy comment_form %}
-
+    <h3>Add a Comment</h3>
+    {% crispy comment_form %}
+</div>
 {% endblock %}
