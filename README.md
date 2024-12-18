@@ -1,133 +1,317 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Team list: Guy S-P, Paul Jebb, John Gardner, Mars Oakley,
+**Team list:**  Guy S-P, Paul Jebb, John Gardner, Mars Oakley, Sol Rayet, Ash
+**Date:** 16/12/2024
+**Cohort:** WECA - Full Stack Software Developer: Skills Bootcamp  
+**Project:** Tidder: HTML, CSS, Bootstrap, JS, Python, Django
 
-Dear Tidders,
+# **Tidder**
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+**Tidder** is a social media platform for online communities centered around specific interests and hobbies. It provides a space for users to share ideas, engage in discussions, and collaborate on projects. Whether it's technology, gaming, or a niche hobby, TIDA offers a platform for like-minded individuals to connect and learn from each other.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+![marketing](static/images/README//****..jpg)
 
-## Gitpod Reminders
+<br> 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## **URL's**
 
-`python3 -m http.server`
+  - **Home Page** 
+  - **Admin Page** 
+  - **Github repository** 
+  - **Github project** 
 
-A blue button should appear to click: _Make Public_,
+<br>
+<br>
 
-Another blue button should appear to click: _Open Browser_.
+# Understand the Purpose:
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+* A platform to create an online community where users can share ideas, engage in discussions, and discover new perspectives.
+* To facilitate user interaction through comments and recommendations.
+* To provide a user-friendly interface for browsing and contributing content.
 
-A blue button should appear to click: _Make Public_,
+<br> 
+<br>
 
-Another blue button should appear to click: _Open Browser_.
+# Project Management Approach
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Agile Methodology
+We used an agile methodology. breaking down the project into smaller sprints, giving flexibility as the project progressed.
 
-To log into the Heroku toolbelt CLI:
+### GitHub Project Management
+As shown below, we used GitHub Projects to track tasks and their progress. Using MoSCoW, Kanban boards and sprints, to prioritise and deliver work.
+<br> 
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![AgilePlanning](static/images/README//****..jpg)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+<br>
 
-### Connecting your Mongo database
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+### MoSCoW Prioritisation
 
-------
+* **Must-Have:** Core functions for the site basic operation, such as user authentication and blog post management.
+* **Should-Have:** Features that enhance user experience.
+* **Could-Have:** Additional features to improve the site but are not critical.
+* **Won't-Have:** Features that are not prioritised for  development.
 
-## Release History
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Sprint Planning
 
-**June 18, 2024,** Add Mongo back into template
+* **Sprint 1: Core Functionality**
+  * User registration and authentication
+  * Blog post creation, editing, and deletion
+  * User comment submission and moderation  * 
+* **Sprint 2: User Experience and Features**
+  * User interface and user experience improvements   * 
+* **Sprint 3: Deployment and Testing**
+  * Final deployment to production environment
+  * Testing for quality and performance
+  * Bug fixing
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+<br> 
+<br> 
 
-**May 28 2024:** Fix Mongo and Links installs
+## Platform Features
 
-**April 26 2024:** Update node version to 16
+* **Home Page**
+  * Welcomes visitors and provides a brief overview of the blog's content.
+  * Features a list of blog posts.
+  * Highlights the latest blog posts.
 
-**September 20 2023:** Update Python version to 3.9.17.
+  ![HomeFeature](static/images/README//****..jpg)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+* **Blog Page**
+  * Displays a list of blog posts, categorized by topic.
+  * Allows users to view individual blog posts in detail.
+  * Enables users to leave comments on blog posts.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+  ![BlogFeature](static/images/README/.jpg)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+* **About Page**
+  * Provides information about the site.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+  ![AboutFeature](static/images/README/.jpg)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## User Authentication and Notifications
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* **User Accounts**
+  * Create an account
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+  ![SignUp](static/images/README//****..jpg)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+  * Sign in
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+  ![SignIn](static/images/README//****..jpg)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+* **Notifications**
+  * Receive notifications for:
+    * Logged in
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+  ![logout](static/images/README/logged-in/****..jpg)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+    * Logged out
 
-------
+  ![Login](static/images/README/not-logged-in/****..jpg)
 
-## FAQ about the uptime script
 
-**Why have you added this script?**
+    * CRUD blog comment posts
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+  ![CommentSubmitted](static/images/README/CommentSubmitted/****..jpg)
 
-**How will this affect me?**
+  ![CommentUpdated](static/images/README/CommentUpdated/****.jpg)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+  ![CommentDeleted](static/images/README/CommentDeleted/****.jpg)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+## Target Audience
 
-**So….?**
+* Techies: People comfortable navigating online forums and communities.
+* Content creators: People who enjoy sharing their knowledge, experiences, and opinions with others.
+* Community-oriented users: People who seek to connect with like-minded people and participate in discussions.
+* Those seeking diverse perspectives: People who value a wide range of viewpoints and want to engage in open dialogue.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## User Stories
 
-**Can I opt out?**
+| User Story | MoSCoW | Acceptance Criteria |
+|---|---|---|
+| User: Register for an account | Must Have | The user should be able to create an account with a unique username and password. |
+| User: Log in and log out | Must Have | The user should be able to log in and log out of their account securely. |
+| User: Browse subreddits | Must Have | The user should be able to browse a list of Tidders and view their content. |
+| User: View posts | Must Have | The user should be able to view individual posts, including their title, content, upvotes, downvotes, and comments. |
+| User: Vote on posts | Must Have | The user should be able to upvote or downvote posts. |
+| User: Post comments | Must Have | The user should be able to post comments on posts and replies to other comments. |
+| User: Edit and delete own posts and comments | Must Have | The user should be able to edit or delete their own posts and comments within a certain timeframe. |
+| User: Follow subreddits | Could Have | The user should be able to follow specific Tidders to receive notifications about new posts. |
+| User: Save posts for later | Could Have | The user should be able to save posts for later reading. |
+| User: Search for content | Should Have | The user should be able to search for posts and comments using keywords. |
+| User: Customize user profile | Could Have | The user should be able to customize their profile with an avatar and bio. |
+| User: Report abusive or inappropriate content | Must Have | The user should be able to report posts or comments that violate community guidelines.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+| Admin User Story | MoSCoW | Acceptance Criteria |
+|---|---|---|
+| Admin: Create and manage subreddits | Must Have | The admin should be able to create, edit, and delete Tidders. |
+| Admin: Moderate user content | Must Have | The admin should be able to remove or edit inappropriate or harmful content. |
+| Admin: Manage user accounts | Must Have | The admin should be able to ban or suspend users who violate community guidelines. |
+| Admin: Monitor site activity | Must Have | The admin should be able to track user activity, identify trends, and troubleshoot issues.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+# Technologies Used
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- **HTML5**: Used to create the templates that render the dynamic content generated by Django's views.
+- **CSS3**: Used to style templates, creating the visual layout and design of the application.
+- **Bootstrap**: Used to accelerate development creating responsive designs that adapt to different screen sizes.
+- **Python**: Used to build Django applications. handleing server-side logic, database interactions, and template rendering.
+- **JavaScript**: Used to add dynamic behavior to web pages
+- **GitHub**: Used to deploy the static files generated by Django.
+- **Heroku**:  Used to deploy the Django app managing the infrastructure
+- **Balsamiq**: Used for UX wireframes and design
 
 ---
 
-Happy coding!
+# Design Choices
+
+## ERD design:
+
+The Entity-Relationship Diagram for Tidders is designed to model the data of our blog site. This initally helped us understand the data and relationships between fields like Users and Blog Posts. 
+
+![ERD](staticfiles/images/README/****.jpg)
+
+
+## Color Scheme
+
+- Bright sunny color scheme used to enhance visual appeal.
+
+## Fonts
+
+- Standard fonts for readability and consistent design.
+- Slightly larger, bold fonts for key information to improve visibility.
+
+## Wireframes
+
+- Wireframes were created to design the Travel Blog layout:  
+
+![Home_Wireframe](static/images/README/****.jpg)
+
+![Blog_Wireframe](static/images/README/****.jpg)
+
+![About_Wireframe](static/images/README/****.jpg)
+
+![Mobile_Wireframe](static/images/README/****.jpg)
+
+
+
+# Testing
+
+The code has been tested and successfully validated though:
+
+### HTML Validation - Status=Passed
+
+- Initial HTML validation was done using the W3C Markup Validation Service.
+
+ ![HTML validation](static/images/README/****.jpg)
+
+### CSS Validation - Status=Passed
+
+- CSS validation was performed using W3C's CSS Validator.
+
+![CSS validation](static/images/README/****.jpg)
+
+### Python Linter - Status=Passed, 
+- I needed to remove comments to pass, as they are lengthy and exceeded 79 chars. These have been put back in as useful to my learning
+
+![DestinationLinter](static/images/README/****.jpg)
+
+![BlogPostLinter](static/images/README/****.jpg)
+
+## Manual Testing against User Story acceptance:
+
+| User Story | MoSCoW | Acceptance Criteria | Test Case ID | Test Steps | Expected Result | Actual Result | Pass/Fail |
+|---|---|---|---|---|---|---|---|
+| **User Features** | | | | | | | |
+| User: Register for an account | Must Have | The user should be able to create an account with a unique username, email, and password. | TC1 | 1. Navigate to the registration page. 2. Fill in the required fields. 3. Submit the form. | A new user account should be created. | ... | ... |
+| User: Log in and log out | Must Have | The user should be able to log in and log out of their account securely. | TC2 | 1. Navigate to the login page. 2. Enter valid credentials. 3. Click "Login." 4. Navigate to the logout page and click "Logout." | The user should be logged in and then logged out successfully. | ... | ... |
+| User: Browse Tidders | Must Have | The user should be able to view a list of available Tidders and their descriptions. | TC3 | 1. Navigate to the homepage. 2. Click on the "Tidders" link. | A list of Tidders should be displayed. | ... | ... |
+| User: View Posts in a Tidder | Must Have | The user should be able to view a list of posts within a Tidder, sorted by date or popularity. | TC4 | 1. Navigate to a specific Tidder. 2. Verify that posts are displayed in a clear and organized manner. | Posts should be displayed correctly. | ... | ... |
+| User: View Post Details | Must Have | The user should be able to view the full content of a post, including its title, body, comments, and upvotes/downvotes. | TC5 | 1. Click on a specific post. 2. Verify that the post's title, content, and comments are displayed. | Post details should be displayed correctly. | ... | ... |
+| User: Submit a Post | Must Have | The user should be able to submit a new text post, link post, or image post to a relevant Tidder. | TC6 | 1. Navigate to a Tidder. 2. Click the "Submit" button. 3. Fill in the post details. 4. Submit the post. | The new post should be displayed in the Tidder. | ... | ... |
+| User: Comment on Posts | Must Have | The user should be able to post comments on posts and replies to other comments. | TC7 | 1. Navigate to a post. 2. Click the "Comment" button. 3. Fill in the comment box. 4. Submit the comment. | The comment should be displayed below the post. | ... | ... |
+| User: Vote on Posts and Comments | Must Have | The user should be able to upvote or downvote posts and comments. | TC8 | 1. Navigate to a post or comment. 2. Click the upvote or downvote button. | The vote should be registered, and the vote count should update. | ... | ... |
+| User: Edit and Delete Own Posts and Comments | Must Have | The user should be able to edit or delete their own posts and comments within a certain timeframe. | TC9, TC10 | 1. Navigate to a post or comment. 2. Click the "Edit" or "Delete" button. 3. Make necessary changes or confirm deletion. | The post or comment should be edited or deleted successfully. | ... | ... |
+| User: Search for Content | Should Have | The user should be able to search for posts and comments using keywords or phrases. | TC11 | 1. Use the search bar to input a keyword. 2. Click the "Search" button. | Relevant search results should be displayed. | ... | ... |
+| User: Follow Tidders | Could Have | The user should be able to follow specific Tidders to receive notifications about new posts. | TC12 | 1. Navigate to a Tidder. 2. Click the "Follow" button. | The user should receive notifications for new posts in the Tidder. | ... | ... |
+| User: Save Posts and Comments | Could Have | The user should be able to save posts and comments for later reference. | TC13 | 1. Navigate to a post or comment. 2. Click the "Save" button. | The post or comment should be added to the user's saved items. | ... | ... |
+| User: Report Abuse | Must Have | The user should be able to report abusive or inappropriate content. | TC14 | 1. Navigate to a post or comment. 2. Click the "Report" button. 3. Fill in the report form. 4. Submit the report. | The report should be submitted to the moderators. | ... | ... |
+
+**Admin Features**
+
+| Admin User Story | MoSCoW | Acceptance Criteria | Test Case ID | Test Steps | Expected Result | Actual Result | Pass/Fail |
+|---|---|---|---|---|---|---|---|
+| Admin: Create and Manage Tidders | Must Have | The admin should be able to create, edit, and delete Tidders. | TC15 | 1. Log in as admin. 2. Navigate to the admin panel. 3. Create a new Tidder. | The new Tidder should be created. | ... | ... |
+| Admin: Moderate User Content | Must Have | The admin should be able to remove or edit inappropriate or harmful content. | TC16 | 1. Log in as admin. 2. Navigate to a post or comment. 3. Click the "Moderate" button. 4. Choose to remove or edit the content. | The content should be moderated accordingly. | ... | ... |
+| Admin: Manage User Accounts | Must Have | The admin should be able to ban or suspend users who violate community guidelines. | TC17 | 1. Log in as admin. 2. Navigate to the user management section. 3. Select a user. 4. Choose to ban or suspend the user. | The user's account should be banned or suspended. | ... | ... |
+| Admin: Monitor Site Activity | Must Have | The admin should be able to track user activity, identify trends, and troubleshoot issues. | TC18 | 1. Log in as admin. 2. Navigate to the admin dashboard. 3. View user activity logs and site statistics. | Relevant data should be displayed. | ... | ... |
+
+## Accessibility testing
+
+- Google Lighthouse audit reports an accessibility score of 87%, ensuring users with disabilities can access the site effectively.
+
+## Browser and Device Testing
+
+- Tested on multiple devices and browsers for responsiveness:
+  - iPhone
+  - Desktop
+  - Chrome Developer Tools (simulating various devices)
+  - Browsers: Chrome, Edge, and Safari
+- Site functioned as expected across all tested platforms.
+
+---
+
+# Bugs
+??????????????????????
+
+
+# Deployment
+
+**Deploying to Heroku**
+
+The steps I took to deploy Django project to Heroku:
+
+1. **Create a New App:**
+   - Log in to your Heroku account and click "New App."
+   - Choose a unique name for app.
+   - Select  preferred region.
+   - Click "Create App."
+
+2. **Connect to GitHub:**
+   - In the "Deploy" tab, select "GitHub."
+   - Connect GitHub account and select the project repository.
+
+3. **Configure Deployment:**
+   - Choose manual to reserve depolyments and possible credit issues.
+   - Ensure main branch is selected for deployment.
+
+4. **Set Up Config Vars:**
+   - In the "Settings" tab, click "Reveal Config Vars."
+   - Add necessary environment variables, such as database credentials and API keys.
+
+5. **Select Buildpacks:**
+   - In the "Buildpacks" tab, add Node.js and Python buildpacks.
+
+6. **Deploy:**
+   - Click "Deploy Branch."
+   - Once deployed, you can access your live app using the provided URL or pressing the 'open app' button.
+---
+
+# Future Enhancements:
+
+?????????????????????????
+
+
+# Credits
+
+- **Bootstrap**: For layout, components, and responsive design.
+- **Code Institute**: For project templates and guidance.
+- **Font Awesome**: For fonts.
+- **Favicon**: For favicon image.
+- **Freepik**: For hero image.
