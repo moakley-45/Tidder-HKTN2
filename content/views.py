@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.db.models import Count
 from .models import Post, Comment
@@ -60,3 +61,37 @@ def add_comment(request, slug):
     else:
         form = CommentForm()
     return render(request, 'content/add_comment.html', {'form': form})
+
+# Post edit view
+
+@login_required
+def edit_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+
+    # Ensure only the creator can edit
+    if post.creator != request.user:
+        return redirect('post_detail', slug=slug)
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('post_detail', slug=post.slug)
+    else:
+        form = PostForm(instance=post)
+
+    return render(request, 'content/edit_post.html', {'form': form, 'post': post})
+
+
+@login_required
+def delete_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    
+    if request.method == 'POST':
+        if request.user == post.creator:
+            post.delete()
+            return redirect('posts')
+        else:
+            return redirect('post_main', slug=slug)
+    else:
+        return redirect('post_detail', slug=slug)

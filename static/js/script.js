@@ -9,3 +9,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Delete Post with Modal pop up
+
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+    const deleteForm = document.getElementById('deleteForm');
+    
+    deleteButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const slug = this.getAttribute('data-slug');
+            deleteForm.action = '/post/' + slug + '/delete/';
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+            deleteModal.show();
+        });
+    });
+});

@@ -12,7 +12,11 @@ class PostForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Create Post'))
+        # Check if it's an existing post (editing), not a new post (creating)
+        if self.instance.pk:  # If the post has a primary key, it's being edited
+            self.helper.add_input(Submit('submit', 'Save Changes'))  # Change button text for editing
+        else:
+            self.helper.add_input(Submit('submit', 'Create Post'))  # Use original button for creating posts
         self.helper.layout = Layout(
             Field('title'),
             Field('content', rows=4),

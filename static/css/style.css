@@ -35,3 +35,10 @@ li.nav-item {
     padding: 10px;
     width: 65%;
 }
+
+/* Modal styling */
+
+.modal-content {
+    background-color: black !important;
+    border: 2px solid white !important;
+}

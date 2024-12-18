@@ -4,7 +4,13 @@
     <h1>{{ title }}</h1>
     {% for post in posts %}
         <article>
-            <!-- H2 slug stuff to go here :) -->
+            <h2>
+                {% if post.slug %}
+                    <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+                {% else %}
+                    {{ post.title }} <em>(Link currently unavailable)</em>
+                {% endif %}
+            </h2>
             <p>{{ post.excerpt }}</p>
             <p>Author: {{ post.creator }} | Date: {{ post.created_on }} | Comments: {{ post.comment_count }}</p>
         </article>
