@@ -7,7 +7,7 @@
 
 # **Tidder**
 
-**Tidder** is a social media platform for online communities centered around specific interests and hobbies. It provides a space for users to share ideas, engage in discussions, and collaborate on projects. Whether it's technology, gaming, or a niche hobby, TIDA offers a platform for like-minded individuals to connect and learn from each other.
+**Tidder** is a social media platform for online communities centered around specific interests and hobbies. It provides a space for users to share ideas, engage in discussions, and collaborate on projects. Whether it's technology, gaming, or a niche hobby, Tidder offers a platform for like-minded individuals to connect and learn from each other.
 
 ![marketing](static/images/README//****..jpg)
 
