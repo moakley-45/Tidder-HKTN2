@@ -11,33 +11,38 @@
 
     {% if post_results or comment_results %}
     {% if post_results %}
-        <h2>Post Results</h2>
-        {% for result in post_results %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">{{ result.title }}</h5>
-                    <p class="card-text">{{ result.excerpt|default:result.content|truncatewords:30 }}</p>
-                    <p class="card-text"><small class="text-muted">Total votes: {{ result.total_votes }}</small></p>
-                </div>
-            </div>
-        {% endfor %}
+    <h2>Post Results</h2>
+    {% for result in post_results %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title result_title">
+                <a href="{% url 'post_detail' result.slug %}">{{ result.title }}</a>
+            </h5>
+            <p class="card-text">{{ result.excerpt|default:result.content|truncatewords:30 }}</p>
+            <p class="card-text"><small class="text-muted">Total votes: {{ result.total_votes }}</small></p>
+        </div>
+    </div>
+    {% endfor %}
     {% endif %}
 
     {% if comment_results %}
-        <h2>Comment Results</h2>
-        {% for result in comment_results %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Comment on: {{ result.post.title }}</h5>
-                    <p class="card-text">{{ result.comment_content|truncatewords:30 }}</p>
-                    <p class="card-text"><small class="text-muted">Total votes: {{ result.total_votes }}</small></p>
-                </div>
-            </div>
-        {% endfor %}
+    <h2>Comment Results</h2>
+    {% for result in comment_results %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title result_title">
+                <a href="{% url 'post_detail' result.post.slug %}">Comment on: {{ result.post.title }}</a>
+            </h5>
+            <p class="card-text">{{ result.comment_content|truncatewords:30 }}</p>
+            <p class="card-text"><small class="text-muted">Total votes: {{ result.total_votes }}</small></p>
+        </div>
+    </div>
+    {% endfor %}
     {% endif %}
-{% else %}
+    {% else %}
     <p>No results found for "{{ query }}". Please try a different search term.</p>
-{% endif %}
+    {% endif %}
+
 
 </div>
 {% endblock %}

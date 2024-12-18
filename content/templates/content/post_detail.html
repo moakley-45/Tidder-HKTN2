@@ -33,6 +33,7 @@
 <div id="comments-space">
     <h2 id="comments-title">Comments</h2>
     {% for comment in comments %}
+    <div id="comment-{{ comment.id }}">
         <p class="comments-content-body">{{ comment.author }}: {{ comment.comment_content }}</p>
         {% if user.is_authenticated and user == comment.author %}
             <a href="{% url 'edit_comment' comment.id %}" class="btn btn-info">Edit</a>

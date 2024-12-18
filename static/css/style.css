@@ -35,3 +35,9 @@ li.nav-item {
     padding: 10px;
     width: 65%;
 }
+
+/* Search Page styling */
+
+h5.card-title.result_title a {
+    color: #000080 !important;
+}

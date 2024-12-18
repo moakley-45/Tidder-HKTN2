@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from .views import add_comment, edit_comment, delete_comment
+
 
 urlpatterns = [
     path('', views.PostMainView.as_view(), name='posts_main'),
