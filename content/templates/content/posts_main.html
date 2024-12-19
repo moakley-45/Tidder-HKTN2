@@ -1,22 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ title }}</h1>
-    {% for post in posts %}
+<h1>{{ title }}</h1>
+{% for post in posts %}
+<div class="row mb-4">
+    <!-- Vote icons and score -->
+    <div class="col-1">
+        <div class="vote-container">
+            <i class="fa-solid fa-circle-arrow-up vote-icon upvote" data-content-id="{{ post.id }}"
+                data-content-type="post"></i>
+            <span class="score-readout" id="score-{{ post.id }}">{{ post.total_votes }}</span>
+            <i class="fa-solid fa-circle-arrow-down vote-icon downvote" data-content-id="{{ post.id }}"
+                data-content-type="post"></i>
+        </div>
+    </div>
+    <!-- Post content -->
+    <div class="col-11">
         <article>
             <h2>
                 {% if post.slug %}
-                    <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+                <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
                 {% else %}
-                    {{ post.title }} <em>(Link currently unavailable)</em>
+                {{ post.title }} <em>(Link currently unavailable)</em>
                 {% endif %}
             </h2>
             <p>{{ post.excerpt }}</p>
             <p>Author: {{ post.creator }} | Date: {{ post.created_on }} | Comments: {{ post.comment_count }}</p>
         </article>
-    {% empty %}
-        <p>No posts available.</p>
-    {% endfor %}
+    </div>
+</div>
+{% empty %}
+<p>No posts available.</p>
+{% endfor %}
+
 
 {% if is_paginated %}
 <nav>

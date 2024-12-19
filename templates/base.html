@@ -31,7 +31,7 @@
             <a class="navbar-brand" href="#">
                 <span class="logo">
                     <!-- Add an image here for the logo -->
-                    <img src="/workspace/Tidder-HKTN2/static/images/Tidder Logo.webp" alt="Tidder Logo">
+                    <img src="{% static 'images/android-chrome-192x192.png' %}" alt="Tidder Logo">
                 </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
@@ -90,7 +90,11 @@
             <p class="text-centre text-white">
                 {% block copyright %}{% endblock copyright %}
             </p>
-            <p class="m-0 text-center text-white">Follow us: <i class="fab fa-github-square ms-3"></i>
+            <p class="m-0 text-center text-white">
+                Follow us:
+                <a href="https://github.com/moakley-45/Tidder-HKTN2" target="_blank" class="text-white">
+                    <i class="fab fa-github-square ms-3"></i>
+                </a>
         </h3>
     </footer>
 

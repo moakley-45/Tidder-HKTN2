@@ -1,12 +1,16 @@
+import json
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
+from django.views.decorators.http import require_POST
+from django.contrib.contenttypes.models import ContentType
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-from django.db.models import Count
-from .models import Post, Comment
+from django.http import JsonResponse
+from django.db.models import Count, Sum
+from .models import Post, Comment, Vote
 from .forms import PostForm, CommentForm
-from django.views.generic import TemplateView
+
 
 class PostMainView(generic.ListView):
     model = Post
@@ -16,7 +20,8 @@ class PostMainView(generic.ListView):
 
     def get_queryset(self):
         return Post.objects.filter(status=1).annotate(
-            comment_count=Count('comments')
+            comment_count=Count('comments'),
+            total_votes=Sum('votes__value')
         ).order_by('-created_on')
 
     def get_context_data(self, **kwargs):
@@ -35,6 +40,7 @@ class PostCreateView(LoginRequiredMixin, generic.CreateView):
         form.instance.creator = self.request.user
         return super().form_valid(form)
 
+
 class PostDetailView(generic.DetailView):
     model = Post
     template_name = "content/post_detail.html"
@@ -46,6 +52,7 @@ class PostDetailView(generic.DetailView):
         context['comment_form'] = CommentForm()
         return context
 
+
 def add_comment(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.method == 'POST':
@@ -54,15 +61,22 @@ def add_comment(request, slug):
             comment = form.save(commit=False)
             comment.post = post
             comment.author = request.user
-            # adding approved = True for testing
+            
+            # Check if this is a reply
+            parent_id = request.POST.get('parent_id')
+            if parent_id:
+                comment.parent = get_object_or_404(Comment, id=parent_id)
+
+            # Adding approved = True for testing
             comment.approved = True
             comment.save()
             return redirect('post_detail', slug=slug)
     else:
         form = CommentForm()
+
     return render(request, 'content/add_comment.html', {'form': form})
 
-# Post edit view
+
 
 @login_required
 def edit_post(request, slug):
@@ -82,37 +96,100 @@ def edit_post(request, slug):
     else:
         form = PostForm(instance=post)
 
-    return render(request, 'content/edit_post.html', {'form': form, 'post': post})
+    return render(
+        request,
+        'content/edit_post.html',
+        {'form': form, 'post': post})
 
 
 @login_required
 def delete_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
-    
+
     if request.method == 'POST':
         if request.user == post.creator:
             post.delete()
             return redirect('posts_main')
-        else:
-            return redirect('posts_main', slug=slug)
-    else:
-        return redirect('post_detail', slug=slug)
+
+    return redirect('post_detail', slug=slug)
+
 
 def edit_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
+
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
             return redirect('post_detail', slug=comment.post.slug)
+
     else:
         form = CommentForm(instance=comment)
-    return render(request, 'content/edit_comment.html', {'form': form, 'comment': comment})
+
+    return render(
+        request,
+        'content/edit_comment.html',
+        {'form': form, 'comment': comment})
+
 
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
+
     if request.method == 'POST':
         comment.delete()
         return redirect('post_detail', slug=comment.post.slug)
+
     return render(request, 'content/delete_comment.html', {'comment': comment})
 
+
+@login_required
+@require_POST
+def vote(request):
+    try:
+        data = json.loads(request.body)
+        content_type = data.get('content_type')
+        object_id = data.get('object_id')
+        value = data.get('value')
+
+        if content_type == 'post':
+            model = Post
+        elif content_type == 'comment':
+            model = Comment
+        else:
+            return JsonResponse(
+                {'success': False,
+                 'error': 'Invalid content type'},
+                status=400  # Corrected status code from 40 to 400
+                )
+
+        content_type_instance = ContentType.objects.get_for_model(model)
+        obj = model.objects.get(id=object_id)
+
+        vote, created = Vote.objects.get_or_create(
+            user=request.user,
+            content_type=content_type_instance,
+            object_id=object_id,
+            defaults={'value': value}
+        )
+
+        if not created:
+            if vote.value != int(value):
+                vote.value = value
+                vote.save()
+            else:
+                vote.delete()
+
+        return JsonResponse({
+            'success': True,
+            'total_votes': obj.total_votes(),
+            'user_vote': vote.value if vote.id else None
+        })
+
+    except json.JSONDecodeError:
+        return JsonResponse(
+            {'success': False, 'error': 'Invalid JSON'}, status=400)
+
+    except Exception as e:
+        return JsonResponse(
+             {'success': False,
+              'error': str(e)}, status=500)

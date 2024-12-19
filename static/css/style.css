@@ -36,11 +36,56 @@ li.nav-item {
     width: 65%;
 }
 
+form#comment-form label {
+    display: none;
+}
+
+.min-height-10 {
+    min-height: 10vh;
+}
+
+.row.score-elements-row.h-100 {
+    font-size: 2rem;
+}
+
+.vote-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.vote-icon {
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.upvoted {
+    color: #ff8000;
+    transition: all, 0.5s;
+}
+
+.downvoted {
+    color: #007acc;
+    transition: all, 0.5s;
+}
+
+.score-readout {
+    margin: 5px 0;
+}
+
+.comment-container {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #f0ffff;
+    border-radius: 5px;
+}
+
 /* Modal styling */
 
 .modal-content {
     background-color: black !important;
     border: 2px solid white !important;
+}
 /* Search Page styling */
 
 h5.card-title.result_title a {

@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 import cloudinary
+
 if os.path.isfile("env.py"):
     import env
 
@@ -37,6 +38,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*',  '*.herokuapp.com']
 
+CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
+
 
 # Application definition
 
@@ -55,6 +58,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
+    'whitenoise',
     'home',
     'content',
     'search',
@@ -66,6 +70,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -147,6 +152,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
