@@ -1,5 +1,52 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
- <h1>Index.html for home app</h1>
+<div class="container mt-5">
+    <h1>Welcome to Tidder!</h1>
+    <p>Your go-to platform for vibrant community discussions and knowledge sharing.</p>
+    <section class="featured-posts my-5">
+        <h2>Featured Posts</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="{% static 'images/Featured Post Tidder.png' %}" alt="Featured Post">
+                    <div class="card-body">
+                        <p class="card-text">Check out our latest discussions and join the conversation.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="{% static 'images/Featured post Pizza.png' %}" alt="Featured Post">
+                    <div class="card-body">
+                        <p class="card-text">Check out our latest discussions and join the conversation.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="{% static 'images/Featured post Toast.png' %}" alt="Featured Post">
+                    <div class="card-body">
+                        <p class="card-text">Check out our latest discussions and join the conversation.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Add more post cards here -->
+        </div>
+    </section>
+
+    <section class="join-us my-5">
+        <h2>Join Us</h2>
+        <p>Sign up today and become a part of our growing community.</p>
+        <a href="{% url 'account_signup' %}" class="btn btn-success">Sign Up</a>
+    </section>
+</div>
 {% endblock %}
