@@ -65,17 +65,21 @@ def add_comment(request, slug):
             # Check if this is a reply
             parent_id = request.POST.get('parent_id')
             if parent_id:
+                # Set the parent comment for replies
                 comment.parent = get_object_or_404(Comment, id=parent_id)
 
             # Adding approved = True for testing
             comment.approved = True
+            
+            # Save the comment (either as a standalone or as a reply)
             comment.save()
+            
+            # Redirect to the post detail page after saving
             return redirect('post_detail', slug=slug)
     else:
         form = CommentForm()
 
     return render(request, 'content/add_comment.html', {'form': form})
-
 
 
 @login_required

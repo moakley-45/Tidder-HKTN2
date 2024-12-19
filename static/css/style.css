@@ -73,6 +73,10 @@ form#comment-form label {
     margin: 5px 0;
 }
 
+.replies {
+    margin-top: 8px;
+}
+
 .comment-container {
     margin-bottom: 15px;
     padding: 10px;

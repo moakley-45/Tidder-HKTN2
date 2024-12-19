@@ -119,7 +119,10 @@ function handleVote(event) {
 }
 
 // NEW: Function to handle replying to comments
-function replyToComment(commentId) {
+function replyToComment(event, commentId) {
+    event.preventDefault();  // Prevent the default anchor behavior
+    console.log('Reply function called with commentId:', commentId); // Debugging line
+
     const form = document.getElementById('comment-form');
     
     // Create a hidden input for parent_id
@@ -130,7 +133,17 @@ function replyToComment(commentId) {
     
     // Append the hidden input to the form
     form.appendChild(parentInput);
+
+    // Change the heading text
+    const heading = document.getElementById('add_comment_form');
+    if (heading) {
+        heading.textContent = 'Add your reply comment';
+    }
+
+    // Scroll to the comment form
+    form.scrollIntoView({ behavior: 'smooth' });
 }
+
 
 // Helper function to get CSRF token
 function getCookie(name) {
