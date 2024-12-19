@@ -13,9 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-
-
-CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
+import cloudinary
 
 if os.path.isfile("env.py"):
     import env
@@ -36,6 +34,8 @@ SECRET_KEY = 'django-insecure-8s5sbw67@_is4ld3rv$nz*d&wkk#5w8jj+$xn=a4a6y)kt+#ue
 DEBUG = True
 
 ALLOWED_HOSTS = ['*',  '*.herokuapp.com']
+
+CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
 
 
 # Application definition
