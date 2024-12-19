@@ -8,4 +8,4 @@ from django.dispatch import receiver
 
 
 class HomePage(TemplateView):
-                    template_name = 'home/index.html'
+    template_name = 'home/index.html'

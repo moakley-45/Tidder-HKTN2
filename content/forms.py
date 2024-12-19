@@ -4,6 +4,7 @@ from crispy_forms.layout import Submit, Layout, Field
 from .models import Post, Comment
 from django.utils.text import slugify
 
+
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
@@ -14,10 +15,10 @@ class PostForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_method = 'post'
         # Check if it's an existing post (editing), not a new post (creating)
-        if self.instance.pk:  # If the post has a primary key, it's being edited
-            self.helper.add_input(Submit('submit', 'Save Changes'))  # Change button text for editing
+        if self.instance.pk:
+            self.helper.add_input(Submit('submit', 'Save Changes'))
         else:
-            self.helper.add_input(Submit('submit', 'Create Post'))  # Use original button for creating posts
+            self.helper.add_input(Submit('submit', 'Create Post'))
         self.helper.layout = Layout(
             Field('title'),
             Field('content', rows=4),
@@ -27,8 +28,8 @@ class PostForm(forms.ModelForm):
         )
 
     def save(self, commit=True):
-        post = super().save(commit=False) 
-        post.slug = slugify(post.title) 
+        post = super().save(commit=False)
+        post.slug = slugify(post.title)
         if commit:
             post.save()
         return post

@@ -8,7 +8,6 @@ from django.contrib.contenttypes.models import ContentType
 from django.utils.text import slugify
 
 
-
 STATUS = ((0, "Draft"), (1, "Published"), (2, "Hidden"))
 
 
@@ -50,10 +49,9 @@ class Post(models.Model):
         return f"{self.title} | written by {self.creator}"
 
     def save(self, *args, **kwargs):
-        if not self.slug: 
+        if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-
 
 
 class Comment(models.Model):

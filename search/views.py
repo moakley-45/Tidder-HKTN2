@@ -4,6 +4,7 @@ from django.shortcuts import render
 from content.models import Post, Comment
 from django.core.exceptions import ObjectDoesNotExist  # Add this line
 
+
 def search_view(request):
     query = request.GET.get('q', '').strip()
     post_results = []
@@ -27,5 +28,7 @@ def search_view(request):
     return render(
         request,
         'search/search_results.html',
-        {'post_results': post_results, 'comment_results': comment_results, 'query': query}
+        {'post_results': post_results,
+         'comment_results': comment_results,
+         'query': query}
     )
