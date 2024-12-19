@@ -26,6 +26,7 @@ button.btn.btn-signup.btn-info.right {
 .navbar-dark .nav-link:hover {
     color: #cccccc !important;
     background: #007bff !important;
+    border-radius: 8px;
     transition: all, 0.5s;
 }
 
