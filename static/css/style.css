@@ -28,6 +28,10 @@ li.nav-item {
     margin-right: 5px;
 }
 
+p.alert.success {
+    background: #13ab13;
+}
+
 /* Post Page styling */
 
 #post-space {

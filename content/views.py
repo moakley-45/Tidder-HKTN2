@@ -75,12 +75,15 @@ def add_comment(request, slug):
             
             # Save the comment (either as a standalone or as a reply)
             comment.save()
-            messages.success(self.request, "Comment submitted!")
+            
+            messages.success(request, "Comment submitted!")
+            
             return redirect('post_detail', slug=slug)
     else:
         form = CommentForm()
 
     return render(request, 'content/add_comment.html', {'form': form})
+
 
 
 @login_required
