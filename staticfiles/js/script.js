@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 
 // Add comment button id="comment-form"
 
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const deleteButtons = document.querySelectorAll('.btn-delete');
     const deleteForm = document.getElementById('deleteForm');
-    
+
     deleteButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             const slug = this.getAttribute('data-slug');
