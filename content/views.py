@@ -133,7 +133,7 @@ def edit_comment(request, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
-            messages.success(self.request, "Comment edited!")
+            messages.success(request, "Comment edited!")
             return redirect('post_detail', slug=comment.post.slug)
 
     else:
@@ -150,7 +150,7 @@ def delete_comment(request, comment_id):
 
     if request.method == 'POST':
         comment.delete()
-        messages.success(self.request, "Comment deleted!")
+        messages.success(request, "Comment deleted!")
         return redirect('post_detail', slug=comment.post.slug)
 
     return render(request, 'content/delete_comment.html', {'comment': comment})
