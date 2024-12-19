@@ -5,6 +5,16 @@
 
 
 {% block content %}
+<!-- Display messages here -->
+<div class="update-message d-flex">
+    {% if messages %}
+    <div class="row">
+        {% for message in messages %}
+        <p class="alert {{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
 <div id="post-space" class="mb-3">
     <h1 class="post-title">{{ post.title }}</h1>
     <span class="post-details-creation"><em>Created by {{ post.creator}} at {{post.created_on}}</em></span>

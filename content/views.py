@@ -10,6 +10,7 @@ from django.http import JsonResponse
 from django.db.models import Count, Sum
 from .models import Post, Comment, Vote
 from .forms import PostForm, CommentForm
+from django.contrib import messages
 
 
 class PostMainView(generic.ListView):
@@ -38,6 +39,7 @@ class PostCreateView(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         form.instance.creator = self.request.user
+        messages.success(self.request, "Post submitted!")
         return super().form_valid(form)
 
 
@@ -70,6 +72,7 @@ def add_comment(request, slug):
             # Adding approved = True for testing
             comment.approved = True
             comment.save()
+            messages.success(self.request, "Comment submitted!")
             return redirect('post_detail', slug=slug)
     else:
         form = CommentForm()
@@ -92,6 +95,8 @@ def edit_post(request, slug):
             if 'featured_image' in request.FILES:
                 post.featured_image = request.FILES['featured_image']
             post.save()
+
+            messages.success(request, 'Your post has been updated!')
             return redirect('post_detail', slug=post.slug)
     else:
         form = PostForm(instance=post)
@@ -109,6 +114,8 @@ def delete_post(request, slug):
     if request.method == 'POST':
         if request.user == post.creator:
             post.delete()
+
+            messages.success(request, 'Your post has been deleted!')
             return redirect('posts_main')
 
     return redirect('post_detail', slug=slug)
@@ -121,6 +128,7 @@ def edit_comment(request, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
+            messages.success(self.request, "Comment edited!")
             return redirect('post_detail', slug=comment.post.slug)
 
     else:
@@ -137,6 +145,7 @@ def delete_comment(request, comment_id):
 
     if request.method == 'POST':
         comment.delete()
+        messages.success(self.request, "Comment deleted!")
         return redirect('post_detail', slug=comment.post.slug)
 
     return render(request, 'content/delete_comment.html', {'comment': comment})
