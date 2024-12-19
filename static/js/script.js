@@ -118,6 +118,20 @@ function handleVote(event) {
     });
 }
 
+// NEW: Function to handle replying to comments
+function replyToComment(commentId) {
+    const form = document.getElementById('comment-form');
+    
+    // Create a hidden input for parent_id
+    const parentInput = document.createElement('input');
+    parentInput.type = 'hidden';
+    parentInput.name = 'parent_id';
+    parentInput.value = commentId;
+    
+    // Append the hidden input to the form
+    form.appendChild(parentInput);
+}
+
 // Helper function to get CSRF token
 function getCookie(name) {
     let cookieValue = null;

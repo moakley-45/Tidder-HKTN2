@@ -61,6 +61,12 @@ def add_comment(request, slug):
             comment = form.save(commit=False)
             comment.post = post
             comment.author = request.user
+            
+            # Check if this is a reply
+            parent_id = request.POST.get('parent_id')
+            if parent_id:
+                comment.parent = get_object_or_404(Comment, id=parent_id)
+
             # Adding approved = True for testing
             comment.approved = True
             comment.save()
@@ -69,6 +75,7 @@ def add_comment(request, slug):
         form = CommentForm()
 
     return render(request, 'content/add_comment.html', {'form': form})
+
 
 
 @login_required
