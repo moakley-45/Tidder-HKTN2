@@ -7,6 +7,8 @@
 
 # **Tidder**
 
+![Tidder Am I Responsive shots](assets/images/Am_I_responsive.png)
+
 **Tidder** is a social media platform for online communities centered around specific interests and hobbies. It provides a space for users to share ideas, engage in discussions, and collaborate on projects. Whether it's technology, gaming, or a niche hobby, Tidder offers a platform for like-minded individuals to connect and learn from each other.
 
 ![marketing](assets/images/BlogFeature.jpg)
@@ -15,8 +17,8 @@
 
 ## **URL's**
 
-  - **Home Page** 
-  - **Admin Page** 
+  - **Home Page** https://tidder-8b4ef2cb1495.herokuapp.com/ 
+  - **Admin Page** https://tidder-8b4ef2cb1495.herokuapp.com/admin/
   - **Github repository** https://github.com/moakley-45/Tidder-HKTN2
   - **Github project** https://github.com/users/moakley-45/projects/7/views/1
 
@@ -173,22 +175,26 @@ The code has been tested and successfully validated though:
 
 ### HTML Validation - Status=Passed
 
-- Initial HTML validation was done using the W3C Markup Validation Service.
+- Initial HTML validation was done using the W3C Markup Validation Service. All created code fully passes - only issues were found with Crispy Form's dependent code, which was not created for this project.
 
- ![HTML validation](static/images/README/****.jpg)
+ ![HTML validation](assets/images/HTML_Validation.png)
 
 ### CSS Validation - Status=Passed
 
 - CSS validation was performed using W3C's CSS Validator.
 
-![CSS validation](static/images/README/****.jpg)
+![CSS validation](assets/images/CSS_Validation.png)
+
+### JS Validation - Status=Passed
+
+- JS validation was perfomed using JSHint.
+
+![CSS validation](assets/images/JS_Validation.png)
 
 ### Python Linter - Status=Passed, 
-- I needed to remove comments to pass, as they are lengthy and exceeded 79 chars. These have been put back in as useful to my learning
+- We needed to remove added comments to pass validation, as they are lengthy and exceeded 79 chars.
 
-![DestinationLinter](static/images/README/****.jpg)
-
-![BlogPostLinter](static/images/README/****.jpg)
+![DestinationLinter](assets/images/Python_Validation.png)
 
 ## Manual Testing against User Story acceptance:
 
@@ -234,7 +240,34 @@ The code has been tested and successfully validated though:
 ---
 
 # Bugs
-??????????????????????
+
+Bug 1 - An issue was found with the Nested comment section.
+
+- Expectation - that reply comments nest only under their parent comments.
+
+- Issue - reply comments would appear in duplicate, as both standalone comments without context and as nested-comments under their direct parent comment.
+
+- Resolution - the View and Template page HTML were both edited to use a different structure, hiding any parent-less reply comment that appeared in the main comment thread.
+
+---
+
+Bug 2 - an issue was found with the uploaded Favicons.
+
+- Expectation - that these would appear as expected for site visitors, in the browser tab.
+
+- Issue - these did not load as expected and threw multiple errors into the Dev Tools Console.
+
+- Resolution - the files were re-added after checking with an AI tool for additional troubleshooting, which fixed the issue and rendered the favicons as expected.
+
+---
+
+Bug 3 - an issue with the Add Comment and Edit comment button.
+
+- Expectation - that these would act as expected, allowing users to easily submit and re-submit their content after editing.
+
+- Issue - these did not load as expected and instead threw an Error page, halting the process completelty.
+
+- Resolution - The issue was isolated to the View used to create and render the Comments. After troubleshooting this, the part of the View which handled user messages was edited and typos were removed, allowing the buttons to work as expected again.
 
 
 # Deployment
@@ -271,13 +304,23 @@ The steps I took to deploy Django project to Heroku:
 
 # Future Enhancements:
 
-?????????????????????????
+- Give more time we would have completed a model for User Profile, and map this to a matching View.
 
+User profiles, as seen in our wireframes and ERD diagramme above, would have allowed users to submit a Profile picture - which would be referenced in created Posts and Comments for a deeper sense of ownership and personality - and allowed users to submit Biographies for other users to learn more about them. 
+
+- Comment Section searches
+
+Given more time, we could have implemented a search function for the Comment section, to allow users to shift through long comment chains with greater ease or look for comments with specific words and phrases.
+
+- Posts/ Comment section filtering
+
+Given more time, we could have implement filtering, such as 'Newest First, 'Oldest First', 'Highest-scoring First' etc, to allow users more choice in how they navigate the site, and what content will be rendered for them first. 
 
 # Credits
 
 - **Bootstrap**: For layout, components, and responsive design.
 - **Code Institute**: For project templates and guidance.
-- **Font Awesome**: For fonts.
+- **Font Awesome**: For icons used throughout project.
+- **Perplexity.ai**: For troubleshooting and assistance with bug-hunting.
 - **Favicon**: For favicon image.
 - **Freepik**: For hero image.
