@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+/* jshint esversion: 6 */
+
+
     // Existing comment form listener
     const form = document.getElementById('comment-form');
     if (form) {
@@ -10,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Existing delete post functionality
     const deleteButtons = document.querySelectorAll('.btn-delete');
     const deleteForm = document.getElementById('deleteForm');
-    
+
     deleteButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             const slug = this.getAttribute('data-slug');
@@ -124,13 +127,13 @@ function replyToComment(event, commentId) {
     console.log('Reply function called with commentId:', commentId); // Debugging line
 
     const form = document.getElementById('comment-form');
-    
+
     // Create a hidden input for parent_id
     const parentInput = document.createElement('input');
     parentInput.type = 'hidden';
     parentInput.name = 'parent_id';
     parentInput.value = commentId;
-    
+
     // Append the hidden input to the form
     form.appendChild(parentInput);
 
