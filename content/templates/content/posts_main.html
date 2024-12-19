@@ -5,8 +5,12 @@
 {% for post in posts %}
 <article>
     <h2>
-        <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
-    </h2>
+        {% if post.slug %}
+            <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+        {% else %}
+            {{ post.title }} <em>(No link available)</em>
+        {% endif %}
+    </h2>    
     <p>{{ post.excerpt }}</p>
     <p>Author: {{ post.creator }} | Date: {{ post.created_on }} | Comments: {{ post.comment_count }}</p>
 </article>
