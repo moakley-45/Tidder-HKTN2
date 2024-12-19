@@ -2,8 +2,8 @@ from django.urls import path
 from . import views
 from .views import add_comment, edit_comment, delete_comment
 
-
 urlpatterns = [
+    path('vote/', views.vote, name='vote'),
     path('', views.PostMainView.as_view(), name='posts_main'),
     path('create/', views.PostCreateView.as_view(), name='post_create'),
     path('<slug:slug>/', views.PostDetailView.as_view(), name='post_detail'),
