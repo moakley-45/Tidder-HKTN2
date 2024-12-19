@@ -18,6 +18,9 @@ import cloudinary
 if os.path.isfile("env.py"):
     import env
 
+CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
+
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

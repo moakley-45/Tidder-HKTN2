@@ -5,6 +5,16 @@
 
 
 {% block content %}
+<!-- Display messages here -->
+<div class="update-message d-flex">
+    {% if messages %}
+    <div class="row">
+        {% for message in messages %}
+        <p class="alert {{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
 <div id="post-space" class="mb-3">
     <h1 class="post-title">{{ post.title }}</h1>
     <span class="post-details-creation"><em>Created by {{ post.creator}} at {{post.created_on}}</em></span>
@@ -89,6 +99,30 @@
             </div>
         </div>
     {% endif %}
+        <!-- Comment content -->
+        <div class="col-11">
+            <p class="comments-content-body">
+                <strong>{{ comment.author }}:</strong> {{ comment.comment_content }}
+                {% if user.is_authenticated %}
+                <a href="#" onclick="replyToComment(event, '{{ comment.id }}')">Reply</a>
+                {% endif %}
+            </p>
+            {% if user.is_authenticated and user == comment.author %}
+                <a href="{% url 'edit_comment' comment.id %}" class="btn btn-info btn-sm">Edit</a>
+                <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger btn-sm">Delete</a>
+            {% endif %}
+            
+            {% if comment.replies.all %}
+                <div class="replies">
+                    {% for reply in comment.replies.all %}
+                        <!-- Reply comments appearing as a nested display -->
+                        {% include 'content/comment_item.html' with comment=reply %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% empty %}
 <p>No comments yet.</p>
 {% endfor %}

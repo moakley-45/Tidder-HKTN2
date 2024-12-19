@@ -10,6 +10,7 @@ from django.http import JsonResponse
 from django.db.models import Count, Sum
 from .models import Post, Comment, Vote
 from .forms import PostForm, CommentForm
+from django.contrib import messages
 
 
 class PostMainView(generic.ListView):
@@ -38,6 +39,7 @@ class PostCreateView(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         form.instance.creator = self.request.user
+        messages.success(self.request, "Post submitted!")
         return super().form_valid(form)
 
 
@@ -73,8 +75,7 @@ def add_comment(request, slug):
             
             # Save the comment (either as a standalone or as a reply)
             comment.save()
-            
-            # Redirect to the post detail page after saving
+            messages.success(self.request, "Comment submitted!")
             return redirect('post_detail', slug=slug)
     else:
         form = CommentForm()
@@ -86,14 +87,18 @@ def add_comment(request, slug):
 def edit_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
 
-    # Ensure only the creator can edit
     if post.creator != request.user:
         return redirect('post_detail', slug=slug)
 
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            if 'featured_image' in request.FILES:
+                post.featured_image = request.FILES['featured_image']
+            post.save()
+
+            messages.success(request, 'Your post has been updated!')
             return redirect('post_detail', slug=post.slug)
     else:
         form = PostForm(instance=post)
@@ -111,6 +116,8 @@ def delete_post(request, slug):
     if request.method == 'POST':
         if request.user == post.creator:
             post.delete()
+
+            messages.success(request, 'Your post has been deleted!')
             return redirect('posts_main')
 
     return redirect('post_detail', slug=slug)
@@ -123,6 +130,7 @@ def edit_comment(request, comment_id):
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
             form.save()
+            messages.success(self.request, "Comment edited!")
             return redirect('post_detail', slug=comment.post.slug)
 
     else:
@@ -139,6 +147,7 @@ def delete_comment(request, comment_id):
 
     if request.method == 'POST':
         comment.delete()
+        messages.success(self.request, "Comment deleted!")
         return redirect('post_detail', slug=comment.post.slug)
 
     return render(request, 'content/delete_comment.html', {'comment': comment})
