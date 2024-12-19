@@ -59,6 +59,12 @@ p.alert.success {
 
 /* Post Page styling */
 
+.row.mb-4.post-lineitem {
+    background: #21252a;
+    border-radius: 8px;
+    padding-top: 8px;
+}
+
 #post-space {
     border: 2px solid;
     padding: 10px;
