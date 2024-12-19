@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+/* jshint esversion: 6 */
+
+// Add comment button id="comment-form"
+
+>>>>>>> b4d8342cbc2c8d23a722effb923de212cc8e6623
 document.addEventListener('DOMContentLoaded', function() {
     // Existing comment form listener
     const form = document.getElementById('comment-form');
@@ -10,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Existing delete post functionality
     const deleteButtons = document.querySelectorAll('.btn-delete');
     const deleteForm = document.getElementById('deleteForm');
-    
+
     deleteButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             const slug = this.getAttribute('data-slug');

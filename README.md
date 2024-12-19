@@ -1,15 +1,15 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-**Team list:**  Guy S-P, Paul Jebb, John Gardner, Mars Oakley, Sol Rayet, Ash
-**Date:** 16/12/2024
-**Cohort:** WECA - Full Stack Software Developer: Skills Bootcamp  
-**Project:** Tidder: HTML, CSS, Bootstrap, JS, Python, Django
+**Team list:**  Guy S-P, Paul Jebb, John Gardner, Mars Oakley, Sol Rayet, Ash H <br>
+**Date:** 16/12/2024 <br>
+**Cohort:** WECA - Full Stack Software Developer: Skills Bootcamp <br>
+**Project:** Tidder: HTML, CSS, Bootstrap, JS, Python, Django <br>
 
 # **Tidder**
 
 **Tidder** is a social media platform for online communities centered around specific interests and hobbies. It provides a space for users to share ideas, engage in discussions, and collaborate on projects. Whether it's technology, gaming, or a niche hobby, Tidder offers a platform for like-minded individuals to connect and learn from each other.
 
-![marketing](static/images/README//****..jpg)
+![marketing](assets/images/BlogFeature.jpg)
 
 <br> 
 
@@ -17,8 +17,8 @@
 
   - **Home Page** 
   - **Admin Page** 
-  - **Github repository** 
-  - **Github project** 
+  - **Github repository** https://github.com/moakley-45/Tidder-HKTN2
+  - **Github project** https://github.com/users/moakley-45/projects/7/views/1
 
 <br>
 <br>
@@ -41,7 +41,7 @@ We used an agile methodology. breaking down the project into smaller sprints, gi
 As shown below, we used GitHub Projects to track tasks and their progress. Using MoSCoW, Kanban boards and sprints, to prioritise and deliver work.
 <br> 
 
-![AgilePlanning](static/images/README//****..jpg)
+![AgilePlanning](assets/images/planning.jpg)
 
 <br>
 
@@ -77,51 +77,20 @@ As shown below, we used GitHub Projects to track tasks and their progress. Using
   * Features a list of blog posts.
   * Highlights the latest blog posts.
 
-  ![HomeFeature](static/images/README//****..jpg)
+  ![HomeFeature](assets/images/HomeFeature.jpg)
 
 * **Blog Page**
   * Displays a list of blog posts, categorized by topic.
   * Allows users to view individual blog posts in detail.
   * Enables users to leave comments on blog posts.
 
-  ![BlogFeature](static/images/README/.jpg)
+  ![BlogFeature](assets/images/BlogFeature.jpg)
 
-* **About Page**
-  * Provides information about the site.
+* **Write Post Page**
+  * Allows users to write individual blog posts.
 
-  ![AboutFeature](static/images/README/.jpg)
+  ![WritePost](assets/images/WritePost.jpg)
 
-
-## User Authentication and Notifications
-
-* **User Accounts**
-  * Create an account
-
-  ![SignUp](static/images/README//****..jpg)
-
-  * Sign in
-
-  ![SignIn](static/images/README//****..jpg)
-
-
-* **Notifications**
-  * Receive notifications for:
-    * Logged in
-
-  ![logout](static/images/README/logged-in/****..jpg)
-
-    * Logged out
-
-  ![Login](static/images/README/not-logged-in/****..jpg)
-
-
-    * CRUD blog comment posts
-
-  ![CommentSubmitted](static/images/README/CommentSubmitted/****..jpg)
-
-  ![CommentUpdated](static/images/README/CommentUpdated/****.jpg)
-
-  ![CommentDeleted](static/images/README/CommentDeleted/****.jpg)
 
 
 ## Target Audience
@@ -175,12 +144,12 @@ As shown below, we used GitHub Projects to track tasks and their progress. Using
 
 The Entity-Relationship Diagram for Tidders is designed to model the data of our blog site. This initally helped us understand the data and relationships between fields like Users and Blog Posts. 
 
-![ERD](staticfiles/images/README/****.jpg)
+![ERD](assets/images/TidderERD.png)
 
 
 ## Color Scheme
 
-- Bright sunny color scheme used to enhance visual appeal.
+- Functional - focus on technical content  
 
 ## Fonts
 
@@ -189,16 +158,13 @@ The Entity-Relationship Diagram for Tidders is designed to model the data of our
 
 ## Wireframes
 
-- Wireframes were created to design the Travel Blog layout:  
+- Wireframes were created to design the Blog layout:  
 
-![Home_Wireframe](static/images/README/****.jpg)
+![Login_Wireframe](assets/images/Tidder_LOGIN_VIEW.png)
 
-![Blog_Wireframe](static/images/README/****.jpg)
+![Post_Wireframe](assets/images/Tidder_Post_View.png)
 
-![About_Wireframe](static/images/README/****.jpg)
-
-![Mobile_Wireframe](static/images/README/****.jpg)
-
+![Profile_Wireframe](assets/images/Tidder_USER_PROFILE_VIEW.png)
 
 
 # Testing
