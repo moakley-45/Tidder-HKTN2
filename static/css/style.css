@@ -15,22 +15,43 @@ main {
 
 /* Navigation Styles */
 
-a.nav-link {
-    color: #f0ffff;
+.navbar-dark .nav-link {
+    color: #f0ffff !important; 
 }
 
-a.nav-link {
-    color: #f0ffff;
+.navbar-dark .nav-link:hover {
+    color: #cccccc !important;
+    background: #007bff !important;
+    transition: all, 0.5s;
 }
 
-li.nav-item {
-    border-right: 2px solid #f0ffff;
-    margin-right: 5px;
+.navbar-dark .active .nav-link {
+    color: #007bff !important;
 }
 
 p.alert.success {
     background: #13ab13;
 }
+
+.pagination-dark .page-link {
+    background-color: #343a40; 
+    color: #ffffff;
+}
+
+.pagination-dark .page-link:hover {
+    background-color: #495057;
+    color: #ffffff; 
+}
+
+.pagination-dark .active .page-link {
+    background-color: #007bff; 
+    color: #ffffff;
+}
+
+.pagination-dark .disabled .page-link {
+    background-color: #343a40; 
+    color: #6c757d;}
+
 
 /* Post Page styling */
 
