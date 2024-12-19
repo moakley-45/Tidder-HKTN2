@@ -2,6 +2,7 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, Field
 from .models import Post, Comment
+from django.utils.text import slugify
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -24,6 +25,13 @@ class PostForm(forms.ModelForm):
             Field('featured_image'),
             Field('status'),
         )
+
+    def save(self, commit=True):
+        post = super().save(commit=False) 
+        post.slug = slugify(post.title) 
+        if commit:
+            post.save()
+        return post
 
 
 class CommentForm(forms.ModelForm):

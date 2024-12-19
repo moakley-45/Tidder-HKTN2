@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container edit_content_form">
+    <h2>Edit Comment</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% crispy form %}
+        <button type="submit" class="btn btn-primary">Update Comment</button>
+    </form>
+</div>
+{% endblock %}

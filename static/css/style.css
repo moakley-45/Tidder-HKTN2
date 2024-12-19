@@ -41,4 +41,8 @@ li.nav-item {
 .modal-content {
     background-color: black !important;
     border: 2px solid white !important;
+/* Search Page styling */
+
+h5.card-title.result_title a {
+    color: #000080 !important;
 }
