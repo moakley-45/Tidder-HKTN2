@@ -13,12 +13,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-
+import cloudinary
+if os.path.isfile("env.py"):
+    import env
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
 
-if os.path.isfile("env.py"):
-    import env
 
 
 

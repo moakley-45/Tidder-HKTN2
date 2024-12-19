@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container">
     <h2>Edit Post: {{ post.title }}</h2>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% crispy form %}
         <a href="{% url 'post_detail' slug=post.slug %}" class="btn btn-secondary">Cancel</a>

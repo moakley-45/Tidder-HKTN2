@@ -68,14 +68,16 @@ def add_comment(request, slug):
 def edit_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
 
-    # Ensure only the creator can edit
     if post.creator != request.user:
         return redirect('post_detail', slug=slug)
 
     if request.method == 'POST':
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            if 'featured_image' in request.FILES:
+                post.featured_image = request.FILES['featured_image']
+            post.save()
             return redirect('post_detail', slug=post.slug)
     else:
         form = PostForm(instance=post)
