@@ -13,6 +13,10 @@ main {
     padding: 0 5%;
 }
 
+button.btn.btn-signup.btn-info.right {
+    color: #f0ffff;
+}
+
 /* Navigation Styles */
 
 .navbar-dark .nav-link {
