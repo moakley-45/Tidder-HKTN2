@@ -78,11 +78,6 @@
             {% crispy comment_form %}
         </form>
     </div>
-<h3>Add a Comment</h3>
-<form id="comment-form" action="{% url 'add_comment' post.slug %}" method="POST">
-    {% crispy comment_form %}
-</form>
-</div>
 
     <!-- Delete confirmation modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
