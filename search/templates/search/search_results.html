@@ -5,7 +5,7 @@
 {% block title %}Search Results for "{{ query }}" | Simply Sprouts{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container search-page-results">
     <h1 id="search_title">Search Results for "{{ query }}"</h1>
     <hr>
 
@@ -29,7 +29,7 @@
     <h2>Comment Results</h2>
     {% for result in comment_results %}
     <div class="card mb-3">
-        <div class="card-body">
+        <div class="card-body search-results-card">
             <h5 class="card-title result_title">
                 <a href="{% url 'post_detail' result.post.slug %}">Comment on: {{ result.post.title }}</a>
             </h5>

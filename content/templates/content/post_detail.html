@@ -17,17 +17,22 @@
 </div>
 <div id="post-space" class="mb-3">
     <h1 class="post-title">{{ post.title }}</h1>
-    <span class="post-details-creation"><em>Created by {{ post.creator}} at {{post.created_on}}</em></span>
+    <span class="post-details-creation"><em>Created by {{ post.creator }} at {{ post.created_on }}</em></span>
     <hr>
     <p class="post-content-body">{{ post.content }}</p>
     <hr>
+
     {% if post.featured_image %}
-    <img class='text-center' src="{{ post.featured_image.url }}" alt="post image" style="max-width: 400px; max-height: 400px;">
-    {% else %}
+    <div class="d-flex justify-content-center mb-3">
+        <img src="{{ post.featured_image.url }}" alt="Post image" class="img-fluid"
+            style="max-width: 100%; max-height: 400px; padding: 15px;">
+    </div>
     {% endif %}
+
     <hr>
-    <span class="post-details-updates"><em> Updated at: {{post.updated_on}}</em></span>
+    <span class="post-details-updates"><em>Updated at: {{ post.updated_on }}</em></span>
 </div>
+
 <div class="d-flex gap-1">
     <div id="edit-btn">
         {% if user.is_authenticated and post.creator == user %}
@@ -62,43 +67,43 @@
 
 
 {% for comment in comments %}
-    {% if not comment.parent %}
-        <div id="comment-{{ comment.id }}" class="comment-container">
-            <div class="row">
-                <!-- Vote icons and score -->
-                <div class="col-1">
-                    <div class="vote-container">
-                        <i class="fa-solid fa-circle-arrow-up vote-icon upvote" data-content-id="{{ comment.id }}"
-                            data-content-type="comment"></i>
-                        <span class="score-readout" id="score-{{ comment.id }}">{{ comment.total_votes }}</span>
-                        <i class="fa-solid fa-circle-arrow-down vote-icon downvote" data-content-id="{{ comment.id }}"
-                            data-content-type="comment"></i>
-                    </div>
-                </div>
-                <!-- Comment content -->
-                <div class="col-11">
-                    <p class="comments-content-body">
-                        <strong>{{ comment.author }}:</strong> {{ comment.comment_content }}
-                        {% if user.is_authenticated %}
-                            <a href="#" onclick="replyToComment(event, '{{ comment.id }}')">Reply</a>
-                        {% endif %}
-                    </p>
-                    {% if user.is_authenticated and user == comment.author %}
-                        <a href="{% url 'edit_comment' comment.id %}" class="btn btn-info btn-sm">Edit</a>
-                        <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger btn-sm">Delete</a>
-                    {% endif %}
-
-                    {% if comment.replies.all %}
-                        <div class="replies">
-                            {% for reply in comment.replies.all %}
-                                {% include 'content/comment_item.html' with comment=reply %}
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                </div>
+{% if not comment.parent %}
+<div id="comment-{{ comment.id }}" class="comment-container">
+    <div class="row">
+        <!-- Vote icons and score -->
+        <div class="col-1">
+            <div class="vote-container">
+                <i class="fa-solid fa-circle-arrow-up vote-icon upvote" data-content-id="{{ comment.id }}"
+                    data-content-type="comment"></i>
+                <span class="score-readout" id="score-{{ comment.id }}">{{ comment.total_votes }}</span>
+                <i class="fa-solid fa-circle-arrow-down vote-icon downvote" data-content-id="{{ comment.id }}"
+                    data-content-type="comment"></i>
             </div>
         </div>
-    {% endif %}
+        <!-- Comment content -->
+        <div class="col-11">
+            <p class="comments-content-body">
+                <strong>{{ comment.author }}:</strong> {{ comment.comment_content }}
+                {% if user.is_authenticated %}
+                <a href="#" onclick="replyToComment(event, '{{ comment.id }}')">Reply</a>
+                {% endif %}
+            </p>
+            {% if user.is_authenticated and user == comment.author %}
+            <a href="{% url 'edit_comment' comment.id %}" class="btn btn-info btn-sm">Edit</a>
+            <a href="{% url 'delete_comment' comment.id %}" class="btn btn-danger btn-sm">Delete</a>
+            {% endif %}
+
+            {% if comment.replies.all %}
+            <div class="replies">
+                {% for reply in comment.replies.all %}
+                {% include 'content/comment_item.html' with comment=reply %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endif %}
 {% empty %}
 <p>No comments yet.</p>
 {% endfor %}

@@ -59,6 +59,10 @@ p.alert.success {
 
 /* Post Page styling */
 
+h1.post-listing-title {
+    margin-top: 30px;
+}
+
 .row.mb-4.post-lineitem {
     background: #21252a;
     border-radius: 8px;
@@ -69,6 +73,7 @@ p.alert.success {
     border: 2px solid;
     padding: 10px;
     width: 65%;
+    margin-top: 30px;
 }
 
 form#comment-form label {
@@ -127,6 +132,29 @@ form#comment-form label {
 }
 /* Search Page styling */
 
+.container.search-page-results {
+    margin-top: 30px;
+}
+
+.card-body.search-results-card {
+    background: #21252a;
+    color: #f0ffff;
+    border-radius: 8px;
+}
+
 h5.card-title.result_title a {
-    color: #000080 !important;
+    color: #007bff !important;
+}
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: #007bff !important
+}
+
+/* Media query for tablet screens and smaller */
+@media only screen and (max-width: 768px) {
+    #post-space {
+        width: 100%; /* Full width for tablet screens and smaller */
+        padding: 15px; /* Optional: Adjust padding as needed */
+    }
 }
