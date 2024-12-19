@@ -90,8 +90,8 @@ def delete_post(request, slug):
     if request.method == 'POST':
         if request.user == post.creator:
             post.delete()
-            return redirect('posts')
+            return redirect('posts_main')
         else:
-            return redirect('post_main', slug=slug)
+            return redirect('posts_main', slug=slug)
     else:
         return redirect('post_detail', slug=slug)
