@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-/* jshint esversion: 6 */
 
 
     // Existing comment form listener
