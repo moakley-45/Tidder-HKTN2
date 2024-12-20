@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-=======
-/* jshint esversion: 6 */
-
-// Add comment button id="comment-form"
-
->>>>>>> b4d8342cbc2c8d23a722effb923de212cc8e6623
 document.addEventListener('DOMContentLoaded', function() {
     // Existing comment form listener
     const form = document.getElementById('comment-form');
